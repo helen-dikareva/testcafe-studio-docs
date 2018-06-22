@@ -21,7 +21,7 @@ body {
     background-color: #f8f8f8;
     height: 80px;
     box-shadow: 0px 2px 20px rgba(0,0,0,0.1);
-    
+
     a:hover {
         text-decoration: none;
     }
@@ -48,7 +48,7 @@ body {
     }
 
     .search-button {
-        background-image: url("/images/search-icon.svg");        
+        background-image: url("/images/search-icon.svg");
     }
 
     .separator {
@@ -63,139 +63,141 @@ body {
   height: calc(100% - 80px) !important;
   width: 270px;
   overflow: auto;
+  border-right: 1px solid #E7E8EB;
 
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-  .accordion-item {
-    cursor: pointer;
+  .doc-main-nav-content {
+    padding: 0 10px 0 29px;
 
-    .title {
-      padding: 11px 10px 11px 28px;
-      border: none;
-      outline: none;
-      font-size: 18px;
-      color: #2A3852;
-    }
+    .accordion-item {
+      cursor: pointer;
 
-    &.expandable {
-      .title:before {
-        font-weight: bold;
-        font-family: DXIcons;
-        color: #2A3852;
-        content: "\f016";
-        line-height: 21px;
-        float: right;
-      }
+      .title-container {
+        margin: 8px 0;
 
-      &.expanded {
-        .title:before {
-          content: "\f014";
-        }
-
-        .item-panel {
-          display: block;
+        .title {
+          margin-left: 10px;
+          padding: 2px 0 3px;
+          border: none;
+          outline: none;
+          font-size: 18px;
+          color: #2A3852;
         }
       }
-    }
 
-    .item-panel {
-      display: none;
-      overflow: hidden;
-    }
-  }
+      &.expandable {
+        .icon {
+          width: 10px;
+          height: 6px;
+          background-repeat: no-repeat;
+          background-image: url("/images/accordion-arrow-down.png");
+          float: right;
+          margin: 13px 10px 0;
+        }
 
-  .nav-tree-view {
-    display: inline-block;
-    width: 272px;
-    height: calc(100% - 80px);
-    vertical-align: top;
-    margin-left: -4px;
-    overflow: auto;
-    padding: 5px 0 5px 0;
+        &.expanded {
+          .icon {
+            background-image: url("/images/accordion-arrow-up.png");
+          }
 
-    ul {
-      font-size: 14px;
-      list-style-type: none;
-      margin-left: 0;
-      margin-bottom: 0;
-
-      & > li:first-of-type .tree-view-item {
-        padding-top: 14px;
+          .item-panel {
+            display: block;
+          }
+        }
       }
 
-      & > li .tree-view-item {
-        padding-top: 9px;
-        padding-bottom: 9px;
+      &.highlighted {
+        .title-container {
+          background-color: #DEE0E3;
+        }
       }
+
+      .item-panel {
+        display: none;
+        overflow: hidden;
+      }
+    }
+
+    .nav-tree-view {
+      display: inline-block;
+      width: 100%;
+      vertical-align: top;
+      overflow: auto;
+      margin-bottom: 8px;
 
       ul {
-        & > li:first-of-type .tree-view-item {
-          padding-top: 3px;
-        }
+        font-size: 14px;
+        list-style-type: none;
+        margin-left: 0;
+        margin-bottom: 0;
 
-        & > li .tree-view-item {
-          padding-top: 5px;
-          padding-bottom: 4px;
-        }
-
-        & > li:last-of-type .tree-view-item {
-          padding-bottom: 10px;
-        }
-
-        & > li .tree-view-item {
-          padding-left: 42px;
+        .tree-view-item{
+          margin-left: 3px;
         }
 
         ul {
           & > li .tree-view-item {
-            padding-left: 52px;
+            padding-left: 13px;
           }
 
           ul {
             & > li .tree-view-item {
-              padding-left: 72px;
+              padding-left: 26px;
             }
+
+            ul {
+              & > li .tree-view-item {
+                padding-left: 39px;
+              }
+            }
+          }
+        }
+      }
+
+      .tree-view-item {
+        .text {
+          display: inline-block;
+          color: rgba(42, 56, 82, 255);
+          width: calc(100% - 21px);
+          padding: 5px 0 6px 6px;
+          margin-left: 6px;
+        }
+
+        .tree-view-icon {
+          display: inline-block;
+          float: left;
+          width: 9px;
+          height: 9px;
+          background-repeat: no-repeat;
+          margin-top: 11px;
+        }
+
+        &.expandable {
+          .tree-view-icon{
+            background-image: url("/images/tree-view-arrow-right.png");
+          }
+
+          &.expanded .tree-view-icon {
+            background-image: url("/images/tree-view-arrow-down.png");
+          }
+        }
+
+        &.highlighted {
+          .text{
+            background-color: #DEE0E3;
           }
         }
       }
     }
 
-    .tree-view-item {
-      padding: 0 20px 0 32px;
-
-      .text {
-        display: inline-block;
-        color: rgba(42, 56, 82, 255);
-      }
-
-      .icon {
-        display: inline-block;
-        width: 14px;
-
-        &:before {
-          font-weight: bold;
-          font-family: DXIcons;
-          color: #2A3852;
-        }
-
-        &.expandable:before {
-          content: "\f04e";
-        }
-
-        &.expanded:before {
-          content: "\f001";
-        }
-      }
+    .splitter {
+      height: 1px;
+      background-color: #dedfe2;
     }
-  }
-
-  .splitter {
-    height: 1px;
-    margin: 0 10px 0 28px;
-    background-color: #dedfe2;
   }
 }
 
@@ -204,7 +206,7 @@ main {
     vertical-align: top;
     margin-left: -4px;
     height: calc(100% - 80px);
-    width: calc(100% - 270px);
+    width: calc(100% - 271px);
     overflow-y: auto;
 
     .post-content {
@@ -283,7 +285,7 @@ footer {
         .video-section {
             border-bottom: 1px solid #dcddde;
             padding: 10px 0;
-            
+
             &:last-child {
                 border-bottom: none;
             }
@@ -304,7 +306,7 @@ footer {
                         font-size: 16px;
                         width: 250px;
                     }
-                    
+
                     .video-duration {
                         font-size: 16px;
                     }
@@ -349,7 +351,7 @@ footer {
                 .section-name {
                     line-height: 36px;
                 }
-                
+
                 .section-content {
                     width: 560px;
 
